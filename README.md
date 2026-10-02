@@ -1,10 +1,6 @@
 # searxng-custom-logo
 
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/hero-dark.png">
-  <source media="(prefers-color-scheme: light)" srcset="assets/hero-light.png">
-  <img alt="The real SearXNG wordmark and magnifier icon, shown in a browser tab and drawn at 16, 32 and 48 pixels" src="assets/hero-light.png">
-</picture>
+![The real SearXNG wordmark and magnifier icon, shown in a browser tab and drawn at 16, 32 and 48 pixels](assets/hero.png)
 
 An Agent Skill for **branding a self-hosted SearXNG** - wordmark, animated front page, results
 mark, and a favicon that survives both browser themes.
@@ -14,14 +10,15 @@ for every claim that would otherwise be taken on faith.
 
 ## What it looks like
 
-The same engine, rebranded: SearXNG's own wordmark ripples and resolves into a custom one in a
-single pass, left to right:
+The same engine, rebranded. SearXNG's own wordmark ripples and resolves into a custom one in a
+single left-to-right pass, with the amplitude at zero at both ends so the loop never jumps:
 
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/demo-dark.gif">
-  <source media="(prefers-color-scheme: light)" srcset="assets/demo-light.gif">
-  <img alt="Animated demo: the real SearXNG wordmark ripples and resolves into a custom 'Forsigh Search' wordmark in one left-to-right pass" src="assets/demo-light.gif">
-</picture>
+![Animated demo: the real SearXNG wordmark ripples and resolves into a custom 'Forsigh Search' wordmark in one left-to-right pass](assets/demo.gif)
+
+One engine, several identities. Every mark below is rendered by this skill's own `make_mark.py`,
+and every favicon is shown at a true 16 pixels:
+
+![Browser tab strip: an unbranded Search field beside tabs for SearXNG, Forsigh Search and Cobalt Search, each wearing its own favicon](assets/tabs.png)
 
 ## Install
 
@@ -55,17 +52,27 @@ The skill walks all five, then covers the parts that actually take the time: mea
 the page really draws, making an animated effect legible at that size, building an animated WebP
 that plays, and a favicon that holds up against both light and dark browser chrome.
 
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/tabs-dark.png">
-  <source media="(prefers-color-scheme: light)" srcset="assets/tabs-light.png">
-  <img alt="Browser tab strip: an unbranded Search field beside tabs for SearXNG, Forsigh Search and Cobalt Search, each wearing its own favicon at a true 16 pixels" src="assets/tabs-light.png">
-</picture>
+The same file, as the browser actually draws it. Most favicon work is judging the small one:
 
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/sizes-dark.png">
-  <source media="(prefers-color-scheme: light)" srcset="assets/sizes-light.png">
-  <img alt="The SearXNG magnifier icon at 16, 32, 48 and 64 pixels, the sizes a browser actually draws" src="assets/sizes-light.png">
-</picture>
+![The SearXNG magnifier icon at 16, 32, 48 and 64 pixels](assets/sizes.png)
+
+## Picking a mark
+
+Any letter, not just the one you start with - A to Z rendered from a font, then checked at a real
+16 pixels against both light and dark chrome:
+
+![Twenty-six letters A to Z, each shown large and again as favicons on light and dark chips](assets/letters.png)
+
+One letter across eight faces. A typeface's personality lives in the large mark; at favicon size
+what survives is the letter and its weight, which is exactly why you choose by the small chip:
+
+![The letter M in eight typefaces, each with 16 pixel samples on light and dark chrome](assets/faces.png)
+
+Prefer a real icon to a letter? Free icon fonts work through the same pipeline. Glyphs are
+resolved by name from the font's own table rather than a hardcoded codepoint, so a font update
+cannot silently swap your mark for a different picture - and no SVG rasteriser is involved:
+
+![Icons from Font Awesome, Material Symbols and Bootstrap Icons, each shown with a small chip version](assets/icon-sets.png)
 
 ## Scripts
 
@@ -73,11 +80,12 @@ that plays, and a favicon that holds up against both light and dark browser chro
   PNG fallbacks, optionally with an embedded `prefers-color-scheme` ink switch.
 - **`font_contact_sheet.py`** - contact sheet of candidate typefaces at real render sizes, so a
   face is chosen by how it looks at 16px rather than at poster size.
+- **`icon_glyph.py`** - resolve an icon by name from an icon font's own cmap, then hand it to
+  `make_mark.py`; converts woff2 to ttf when a set only ships woff2.
 
-Neither bundles fonts: pass your own, under its licence. `references/fonts-and-licensing.md`
-covers what the OFL and Apache licences do and do not permit, and why a rendered glyph outline is
-the safe way to ship a wordmark.
-
+None of them bundles fonts or artwork: pass your own, under its licence.
+`references/fonts-and-licensing.md` covers what the OFL and Apache licences do and do not permit,
+and why a rendered glyph outline is the safe way to ship a wordmark.
 
 ## Layout
 
@@ -93,5 +101,8 @@ MIT - see `LICENSE`. The skill ships no font files; typeface licences remain the
 
 The preview images show SearXNG's own wordmark and magnifier icon; that artwork belongs to the
 SearXNG project and appears here to demonstrate the skill against the real thing. Forsigh Search
-and Cobalt Search are invented for the demo and rendered by the skill's own `make_mark.py`, so
-every mark in these images is something the tooling actually produces.
+and Cobalt Search are invented for the demo and rendered by the skill's own `make_mark.py`.
+
+The icon sheet draws from three free sets, each under its own terms: Font Awesome Free (icons
+CC BY 4.0, font SIL OFL), Material Symbols (Apache 2.0) and Bootstrap Icons (MIT). No font files
+are redistributed here.
