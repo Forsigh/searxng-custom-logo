@@ -44,7 +44,14 @@ def to_ttf(src, dst):
 
 
 def main():
-    ap = argparse.ArgumentParser()
+    ap = argparse.ArgumentParser(
+        description="Resolve an icon by name from a font's own cmap, then render it as a mark.",
+        epilog="Never hardcode the private-use codepoint: it moves between font releases, and a "
+               "stale one renders the wrong icon with no error.\n\n"
+               "  icon_glyph.py --font fa-solid-900.ttf --name magnifying-glass --render out/\n"
+               "  icon_glyph.py --font bootstrap-icons.woff2 --name search --to-mark-font bi.ttf\n"
+               "  icon_glyph.py --font bi.ttf --name compass --find\n",
+        formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--font", required=True, type=pathlib.Path, help="TTF/OTF, or woff2 with --to-mark-font")
     ap.add_argument("--name", help="glyph name, e.g. magnifying-glass")
     ap.add_argument("--find", action="store_true", help="list every glyph name matching --name")
