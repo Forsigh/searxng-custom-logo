@@ -14,12 +14,13 @@ for every claim that would otherwise be taken on faith.
 
 ## What it looks like
 
-The tab picking up the mark, then the front page settling from corrupted to clean:
+The same engine, rebranded: SearXNG's own wordmark ripples and resolves into a custom one in a
+single pass, left to right:
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/demo-dark.gif">
   <source media="(prefers-color-scheme: light)" srcset="assets/demo-light.gif">
-  <img alt="Animated demo: the SearXNG wordmark ripples out of shape and settles back to a clean wordmark" src="assets/demo-light.gif">
+  <img alt="Animated demo: the real SearXNG wordmark ripples and resolves into a custom 'Forsigh Search' wordmark in one left-to-right pass" src="assets/demo-light.gif">
 </picture>
 
 ## Install
@@ -57,7 +58,7 @@ that plays, and a favicon that holds up against both light and dark browser chro
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/tabs-dark.png">
   <source media="(prefers-color-scheme: light)" srcset="assets/tabs-light.png">
-  <img alt="Browser tab strip: an unbranded Search tab beside the SearXNG tab wearing the project's magnifier icon" src="assets/tabs-light.png">
+  <img alt="Browser tab strip: an unbranded Search field beside tabs for SearXNG, Forsigh Search and Cobalt Search, each wearing its own favicon at a true 16 pixels" src="assets/tabs-light.png">
 </picture>
 
 <picture>
@@ -90,5 +91,7 @@ skills/searxng-custom-logo/scripts/      runnable helpers
 
 MIT - see `LICENSE`. The skill ships no font files; typeface licences remain the user's to accept.
 
-The preview images show SearXNG's own wordmark and magnifier icon. That artwork belongs to the
-SearXNG project and appears here to demonstrate the skill against the real thing.
+The preview images show SearXNG's own wordmark and magnifier icon; that artwork belongs to the
+SearXNG project and appears here to demonstrate the skill against the real thing. Forsigh Search
+and Cobalt Search are invented for the demo and rendered by the skill's own `make_mark.py`, so
+every mark in these images is something the tooling actually produces.
