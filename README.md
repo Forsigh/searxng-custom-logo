@@ -1,10 +1,26 @@
 # searxng-custom-logo
 
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/hero-dark.png">
+  <source media="(prefers-color-scheme: light)" srcset="assets/hero-light.png">
+  <img alt="The ACME mark sitting in a browser tab, the ACME wordmark, and the same mark drawn at 16, 32 and 48 pixels" src="assets/hero-light.png">
+</picture>
+
 An Agent Skill for **branding a self-hosted SearXNG** - wordmark, animated front page, results
 mark, and a favicon that survives both browser themes.
 
 Written for an agent to read mid-task: the traps first, the theory second, and a verification step
 for every claim that would otherwise be taken on faith.
+
+## What it looks like
+
+The tab picking up the mark, then the front page settling from corrupted to clean:
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/demo-dark.gif">
+  <source media="(prefers-color-scheme: light)" srcset="assets/demo-light.gif">
+  <img alt="Animated demo: the ACME favicon appears in a browser tab, then the ACME wordmark settles from a glitched state into a clean wordmark" src="assets/demo-light.gif">
+</picture>
 
 ## Install
 
@@ -38,6 +54,18 @@ The skill walks all five, then covers the parts that actually take the time: mea
 the page really draws, making an animated effect legible at that size, building an animated WebP
 that plays, and a favicon that holds up against both light and dark browser chrome.
 
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/tabs-dark.png">
+  <source media="(prefers-color-scheme: light)" srcset="assets/tabs-light.png">
+  <img alt="Browser tab strip: an unbranded Search tab beside a tab showing the ACME mark and title" src="assets/tabs-light.png">
+</picture>
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/sizes-dark.png">
+  <source media="(prefers-color-scheme: light)" srcset="assets/sizes-light.png">
+  <img alt="The same mark rendered at 16, 32, 48 and 64 pixels, the sizes a browser actually draws" src="assets/sizes-light.png">
+</picture>
+
 ## Scripts
 
 - **`make_mark.py`** - render a glyph or short word from any font as a transparent SVG mark plus
@@ -47,7 +75,13 @@ that plays, and a favicon that holds up against both light and dark browser chro
 
 Neither bundles fonts: pass your own, under its licence. `references/fonts-and-licensing.md`
 covers what the OFL and Apache licences do and do not permit, and why a rendered glyph outline is
-the safe way to ship a wordmark.
+the safe way to ship a wordmark. Its output for the placeholder brand above:
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/contact-sheet.png">
+  <source media="(prefers-color-scheme: light)" srcset="assets/contact-sheet.png">
+  <img alt="Contact sheet comparing four typefaces rendering the letter A at 16, 32 and 48 pixels, each fitted to the same ink fraction" src="assets/contact-sheet.png">
+</picture>
 
 ## Layout
 
