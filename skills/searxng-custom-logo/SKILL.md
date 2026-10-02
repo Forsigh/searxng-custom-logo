@@ -1,7 +1,7 @@
 ---
 name: searxng-custom-logo
 description: "Use when changing the logo on a self-hosted SearXNG."
-version: 2.2.0
+version: 2.3.0
 author: Forsigh
 license: MIT
 platforms: [linux, macos, windows]
@@ -61,6 +61,7 @@ symptom: "the logo vanished".
 | a full worked example, font file to deployed mark | `references/walkthrough.md` |
 | the logo vanished after a SearXNG update | `references/upgrades-and-updates.md` |
 | proving the served bytes are the ones you deployed | `scripts/verify_deploy.py` |
+| re-applying CSS and the `?v=` stamp after an update | `scripts/theme_patch.py` |
 
 ## Symptom to cause
 
@@ -75,6 +76,7 @@ symptom: "the logo vanished".
 | header logo renders at an absurd size | `class="logo"` lost, e.g. by wrapping the img in `<picture>` |
 | animation plays in the builder but not in the page | source frames identical or blank -- verify before blaming the encoder |
 | the icon mark changed picture after a font update | a hardcoded private-use codepoint -- resolve the glyph by name (`references/icon-sets.md`) |
+| everything worked, then vanished after an image update | the theme was replaced; re-apply with `scripts/theme_patch.py` (`references/upgrades-and-updates.md`) |
 
 ## When to Use
 
