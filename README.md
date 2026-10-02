@@ -3,7 +3,7 @@
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/hero-dark.png">
   <source media="(prefers-color-scheme: light)" srcset="assets/hero-light.png">
-  <img alt="The ACME mark sitting in a browser tab, the ACME wordmark, and the same mark drawn at 16, 32 and 48 pixels" src="assets/hero-light.png">
+  <img alt="The real SearXNG wordmark and magnifier icon, shown in a browser tab and drawn at 16, 32 and 48 pixels" src="assets/hero-light.png">
 </picture>
 
 An Agent Skill for **branding a self-hosted SearXNG** - wordmark, animated front page, results
@@ -19,7 +19,7 @@ The tab picking up the mark, then the front page settling from corrupted to clea
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/demo-dark.gif">
   <source media="(prefers-color-scheme: light)" srcset="assets/demo-light.gif">
-  <img alt="Animated demo: the ACME favicon appears in a browser tab, then the ACME wordmark settles from a glitched state into a clean wordmark" src="assets/demo-light.gif">
+  <img alt="Animated demo: the SearXNG wordmark ripples out of shape and settles back to a clean wordmark" src="assets/demo-light.gif">
 </picture>
 
 ## Install
@@ -57,13 +57,13 @@ that plays, and a favicon that holds up against both light and dark browser chro
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/tabs-dark.png">
   <source media="(prefers-color-scheme: light)" srcset="assets/tabs-light.png">
-  <img alt="Browser tab strip: an unbranded Search tab beside a tab showing the ACME mark and title" src="assets/tabs-light.png">
+  <img alt="Browser tab strip: an unbranded Search tab beside the SearXNG tab wearing the project's magnifier icon" src="assets/tabs-light.png">
 </picture>
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/sizes-dark.png">
   <source media="(prefers-color-scheme: light)" srcset="assets/sizes-light.png">
-  <img alt="The same mark rendered at 16, 32, 48 and 64 pixels, the sizes a browser actually draws" src="assets/sizes-light.png">
+  <img alt="The SearXNG magnifier icon at 16, 32, 48 and 64 pixels, the sizes a browser actually draws" src="assets/sizes-light.png">
 </picture>
 
 ## Scripts
@@ -75,13 +75,8 @@ that plays, and a favicon that holds up against both light and dark browser chro
 
 Neither bundles fonts: pass your own, under its licence. `references/fonts-and-licensing.md`
 covers what the OFL and Apache licences do and do not permit, and why a rendered glyph outline is
-the safe way to ship a wordmark. Its output for the placeholder brand above:
+the safe way to ship a wordmark.
 
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/contact-sheet.png">
-  <source media="(prefers-color-scheme: light)" srcset="assets/contact-sheet.png">
-  <img alt="Contact sheet comparing four typefaces rendering the letter A at 16, 32 and 48 pixels, each fitted to the same ink fraction" src="assets/contact-sheet.png">
-</picture>
 
 ## Layout
 
@@ -94,3 +89,6 @@ skills/searxng-custom-logo/scripts/      runnable helpers
 ## Licence
 
 MIT - see `LICENSE`. The skill ships no font files; typeface licences remain the user's to accept.
+
+The preview images show SearXNG's own wordmark and magnifier icon. That artwork belongs to the
+SearXNG project and appears here to demonstrate the skill against the real thing.
