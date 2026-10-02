@@ -8,15 +8,20 @@ for every claim that would otherwise be taken on faith.
 
 ## Install
 
-Hermes:
+Hermes, straight from this repo - this fetches the whole skill, hub plus references plus scripts:
+
+```bash
+hermes skills install https://raw.githubusercontent.com/Forsigh/searxng-custom-logo/main/skills/searxng-custom-logo/SKILL.md --yes
+```
+
+Or add the repo as a skill source and install from there:
 
 ```bash
 hermes skills tap add Forsigh/searxng-custom-logo
-hermes skills install searxng-custom-logo --yes
 ```
 
-Other harnesses: copy `skills/searxng-custom-logo/` into wherever your skills live. The format is
-plain Agent Skills - `SKILL.md` with frontmatter, plus `references/` and `scripts/`.
+Any other harness: copy `skills/searxng-custom-logo/` into wherever your skills live. The format
+is plain Agent Skills - `SKILL.md` with frontmatter, plus `references/` and `scripts/`.
 
 ## What it covers
 
