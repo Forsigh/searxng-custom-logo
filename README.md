@@ -82,6 +82,10 @@ cannot silently swap your mark for a different picture - and no SVG rasteriser i
   face is chosen by how it looks at 16px rather than at poster size.
 - **`icon_glyph.py`** - resolve an icon by name from an icon font's own cmap, then hand it to
   `make_mark.py`; converts woff2 to ttf when a set only ships woff2.
+- **`verify_deploy.py`** - check that every asset your compose file mounts is really being served:
+  byte for byte, with a matching `Content-Length`, consistent `.br`/`.gz` siblings, and a `?v=`
+  stamp on every reference. It reads the mounts rather than the directory, so files you keep but
+  never deploy are reported as hygiene, not as failures.
 
 None of them bundles fonts or artwork: pass your own, under its licence.
 `references/fonts-and-licensing.md` covers what the OFL and Apache licences do and do not permit,
