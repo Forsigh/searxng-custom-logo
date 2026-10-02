@@ -1,7 +1,7 @@
 ---
 name: searxng-custom-logo
 description: "Use when changing the logo on a self-hosted SearXNG."
-version: 2.1.0
+version: 2.2.0
 author: Forsigh
 license: MIT
 platforms: [linux, macos, windows]
@@ -58,6 +58,9 @@ symptom: "the logo vanished".
 | rendering an SVG + PNG mark from a font | `scripts/make_mark.py` |
 | shortlisting candidate faces at real tab sizes | `scripts/font_contact_sheet.py` |
 | using a real icon instead of a letter | `references/icon-sets.md`, `scripts/icon_glyph.py` |
+| a full worked example, font file to deployed mark | `references/walkthrough.md` |
+| the logo vanished after a SearXNG update | `references/upgrades-and-updates.md` |
+| proving the served bytes are the ones you deployed | `scripts/verify_deploy.py` |
 
 ## Symptom to cause
 
@@ -116,8 +119,9 @@ It is written to be installable by anyone: no machine-specific paths in this hub
 `references/`, except one reference file that records what is deployed on a particular
 instance. The staging step drops that file together with any table row pointing at it, so
 the published copy carries no dangling links. The two scripts take their fonts as
-arguments and ship no font files, because the font licences are the user's to accept. All three
-resolve a glyph or a glyph name; none bundles artwork.
+arguments and ship no font files, because the font licences are the user's to accept. Each one
+resolves a glyph or a glyph name; none bundles artwork. Deliberately, no text here states how many
+scripts or references there are - a count is a claim that drifts the moment a file is added.
 
 The format is plain Agent Skills (frontmatter + markdown + `references/` + `scripts/`),
 so the directory drops into any compatible harness as-is. Only the deployment targets
