@@ -128,7 +128,9 @@ def main():
            % (W, H, W, H, a.text, a.text, style, tx, ty, scale, -scale,
               ' fill="%s"' % a.ink if not a.ink_light else "", "\n".join(paths)))
     svg_path = a.out_dir / (a.name + ".svg")
-    svg_path.write_text(svg, encoding="utf-8")
+    # newline="\n": text mode would expand to CRLF on Windows, so the same command
+    # would produce a different file for a Linux consumer
+    svg_path.write_text(svg, encoding="utf-8", newline="\n")
 
     print("%s -> %s" % (a.text, svg_path))
     print("  canvas %dx%d, ink %.1fx%.1f px = %.0f%% x %.0f%% (bound by %s)"
