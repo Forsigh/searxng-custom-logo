@@ -6,10 +6,14 @@ face, letter and paths. Every command is copy-pasteable, and each step says what
 ## 1. Choose the face by the small chip, not the big mark
 
 ```bash
-python scripts/font_contact_sheet.py --text "M" \
-  --fonts Lexend.ttf Inter.ttf Montserrat-ExtraBold.ttf \
-  --out-dir out/sheet
+python scripts/font_contact_sheet.py \
+  --spec Lexend.ttf:700 --spec Inter.ttf:700 --spec Montserrat-ExtraBold.ttf:800 \
+  --font-dir /path/to/your/fonts --glyph M --sizes 16,32,48,64 --out out/sheet.png
 ```
+
+`--spec` takes `FontFile.ttf[:weight]` and repeats once per candidate; `--font-dir` repeats too if
+your fonts are in several places. Use `--spec` rather than a bare list, because the weight in the
+spec is what gets instanced for a variable font.
 
 Open the sheet and look at the 16px column. A face that wins at 64px can lose at 16px, and the
 small size is the one your users see in a tab.
