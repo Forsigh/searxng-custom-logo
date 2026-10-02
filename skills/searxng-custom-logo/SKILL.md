@@ -1,26 +1,17 @@
 ---
 name: searxng-custom-logo
-description: Use when changing the logo on a self-hosted SearXNG.
-version: 2.0.0
+description: "Use when changing the logo on a self-hosted SearXNG."
+version: 2.1.0
 author: Forsigh
 license: MIT
-platforms:
-- linux
-- macos
-- windows
+platforms: [linux, macos, windows]
 metadata:
   hermes:
-    tags:
-    - searxng
-    - branding
-    - logo
-    - favicon
-    - animated-webp
-    - docker
-    - css
+    tags: [searxng, branding, logo, favicon, animated-webp, docker, css]
     category: productivity
-    related_skills: []
+    related_skills: [searxng-provider-patches, docker-container-maintenance]
 ---
+
 # Custom SearXNG Logo / Wordmark
 
 Branding a containerised SearXNG: wordmark, front-page animation, results mark, and
@@ -37,6 +28,8 @@ with version and with how much of the page you have customised.
 - Python with `Pillow`, `fontTools` and `numpy`; `brotli` if you serve `.br` siblings
 - `ffmpeg` built with `libwebp_anim` -- only if you are building an animated WebP
 - the typefaces you intend to use, under their own licences (`references/fonts-and-licensing.md`)
+- for an icon mark instead of a letter: a free icon font, plus `brotli` if it ships woff2 only
+  (`references/icon-sets.md`)
 
 ## Quick start
 
@@ -64,6 +57,7 @@ symptom: "the logo vanished".
 | which faces survive at 16px, and their licences | `references/fonts-and-licensing.md` |
 | rendering an SVG + PNG mark from a font | `scripts/make_mark.py` |
 | shortlisting candidate faces at real tab sizes | `scripts/font_contact_sheet.py` |
+| using a real icon instead of a letter | `references/icon-sets.md`, `scripts/icon_glyph.py` |
 
 ## Symptom to cause
 
@@ -77,6 +71,7 @@ symptom: "the logo vanished".
 | icon shows a coloured plate behind it | a page colour baked into the asset instead of straight alpha |
 | header logo renders at an absurd size | `class="logo"` lost, e.g. by wrapping the img in `<picture>` |
 | animation plays in the builder but not in the page | source frames identical or blank -- verify before blaming the encoder |
+| the icon mark changed picture after a font update | a hardcoded private-use codepoint -- resolve the glyph by name (`references/icon-sets.md`) |
 
 ## When to Use
 
@@ -121,7 +116,8 @@ It is written to be installable by anyone: no machine-specific paths in this hub
 `references/`, except one reference file that records what is deployed on a particular
 instance. The staging step drops that file together with any table row pointing at it, so
 the published copy carries no dangling links. The two scripts take their fonts as
-arguments and ship no font files, because the font licences are the user's to accept.
+arguments and ship no font files, because the font licences are the user's to accept. All three
+resolve a glyph or a glyph name; none bundles artwork.
 
 The format is plain Agent Skills (frontmatter + markdown + `references/` + `scripts/`),
 so the directory drops into any compatible harness as-is. Only the deployment targets
