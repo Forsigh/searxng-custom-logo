@@ -89,7 +89,7 @@ dirs = [pathlib.Path(d) for d in (a.font_dir or ["."])]
 sizes = [int(s) for s in a.sizes.split(",")]
 cands = [Candidate(s, dirs) for s in a.spec]
 
-LBL_W, COL_W, HDR_H, ROW_H = 220, 96, 54, 84
+LBL_W, COL_W, HDR_H, ROW_H = 220, 96, 78, 84
 W = LBL_W + COL_W * len(sizes) + 30
 H = HDR_H + ROW_H * len(cands) + 24
 sheet = Image.new("RGB", (W, H), hex_rgb(a.bg))
@@ -98,7 +98,7 @@ note_font = ImageFont.truetype(str(cands[0].path), 15)
 head_font = ImageFont.truetype(str(cands[0].path), 17)
 dr.text((20, 18), "%s candidates at real render size" % a.glyph, font=head_font, fill=hex_rgb(a.ink))
 for i, s in enumerate(sizes):
-    dr.text((LBL_W + COL_W * i + 20, 20), "%dpx" % s, font=note_font, fill=(150, 158, 170))
+    dr.text((LBL_W + COL_W * i + 20, 50), "%dpx" % s, font=note_font, fill=(150, 158, 170))
 
 for r, c in enumerate(cands):
     y = HDR_H + r * ROW_H
