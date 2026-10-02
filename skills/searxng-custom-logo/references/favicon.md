@@ -38,3 +38,29 @@ chrome colour; a filled rounded tile does not:
 - look at it at 16px on both a light and a dark background before shipping, and
   stamp the test page's URLs with `?v=` too -- an unversioned reference there
   serves the OLD cached file and looks like a bug in the new asset
+
+
+## Branding without breaking accessibility
+
+A rebrand is a visual change with invisible consequences. These get shipped by accident because
+nothing in the default view shows them:
+
+- **Keep the accessible name on the logo link.** The header mark is often the only link home. If it
+  is an `<img>`, it needs real `alt` text; if the mark is a background image or an inline SVG, the
+  link needs `aria-label`. `alt=""` on a logo link leaves screen-reader users with a nameless link.
+- **Give a decorative mark `alt=""` deliberately.** The opposite mistake: a mark beside a text
+  wordmark that already states the name will otherwise be announced twice.
+- **Never encode state in colour alone.** A mark that turns red for an error, or a tinted icon that
+  means "active", needs a text or shape cue as well.
+- **Check the theme switch by emulation, not by eye.** A mark carrying an embedded
+  `prefers-color-scheme` switch has to be measured on both branches. Emulate the media feature in
+  devtools and read pixels back; the file containing the switch does not prove the switch fired.
+- **An animation must be meaningful as a still.** An animated WebP inside an `<img>` cannot be paused
+  by CSS, and `prefers-reduced-motion` cannot reach inside it. Design the effect to settle to a clean
+  resting state and hold: someone who sees one frame, or who has motion disabled, must still see a
+  correct and complete mark. An effect only legible mid-motion is broken.
+- **Do not delete the page title or the visible wordmark to "clean up" the header.** The mark adds
+  identity; the text carries meaning, and search engines, screen readers and new visitors all use it.
+
+One check that catches most of it: browse the page with the keyboard only, then again with images
+disabled. If the site becomes unusable, the branding is load-bearing and should not be.
