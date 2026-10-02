@@ -151,7 +151,14 @@ def check_stamps(base, names):
 
 
 def main():
-    ap = argparse.ArgumentParser()
+    ap = argparse.ArgumentParser(
+        description="Check that every asset your compose file mounts is really being served.",
+        epilog="The deployed set comes from the mounts, not from the directory, so sources and "
+               "experiments that were never mounted are reported as hygiene rather than as "
+               "failures. Exit code is 0 only when every check passes.\n\n"
+               "  verify_deploy.py --base-url http://localhost:8080 --compose ./docker-compose.yaml\n"
+               "  verify_deploy.py --base-url https://search.example.com --dir ./custom --only 'logo*'\n",
+        formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--base-url", required=True, help="e.g. http://localhost:8080")
     ap.add_argument("--compose", type=pathlib.Path,
                     help="docker-compose.yaml - the mounts define what must be served")
