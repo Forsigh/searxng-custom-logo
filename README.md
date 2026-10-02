@@ -86,6 +86,10 @@ cannot silently swap your mark for a different picture - and no SVG rasteriser i
   byte for byte, with a matching `Content-Length`, consistent `.br`/`.gz` siblings, and a `?v=`
   stamp on every reference. It reads the mounts rather than the directory, so files you keep but
   never deploy are reported as hygiene, not as failures.
+- **`theme_patch.py`** - re-apply a theme patch after a SearXNG update, idempotently: insert CSS
+  after the rule it overrides, and restamp the stylesheet link. It refuses the two cases that fail
+  silently - a selector that no longer exists, and one whose rule sits inside an unclosed block,
+  where the parser drops the insert without complaining.
 
 None of them bundles fonts or artwork: pass your own, under its licence.
 `references/fonts-and-licensing.md` covers what the OFL and Apache licences do and do not permit,
