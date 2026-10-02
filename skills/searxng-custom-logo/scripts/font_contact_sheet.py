@@ -109,6 +109,8 @@ for r, c in enumerate(cands):
         render(sheet, c, s, (LBL_W + COL_W * i + (COL_W - s) // 2, y + (ROW_H - s) // 2), hex_rgb(a.ink), a.fit)
     print("  %-24s ink ratio %.2f" % (c.label, c.iw / c.ih))
 
-sheet.save(a.out)
+out_path = pathlib.Path(a.out)
+out_path.parent.mkdir(parents=True, exist_ok=True)   # match make_mark.py: never crash on a
+sheet.save(out_path)                                # directory the caller has not made yet
 print("\nsheet: %s (%dx%d)" % (a.out, W, H))
 print("judge at the smallest size shown, not the largest.")
